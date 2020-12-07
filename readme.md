@@ -13,3 +13,5 @@ A few things that can be added to make this more fun and functional:
 - Create multiple layers of sound so two can play at once
    - Perhaps could also assign the notes to a time signature as well
    - Can custom add notes to any spot on the playback grid
+- Add keyboard button functionality to play each drum part
+- Add a second symbol to the high-hat and use a keyboard button to close it, playing a different sound
