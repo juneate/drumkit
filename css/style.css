@@ -1,3 +1,7 @@
+.drums {
+  max-width: 50em;
+  margin: 0 auto;
+}
 .playable {
   /* Rotate the item from the center of itself */
   transform-box: fill-box;
