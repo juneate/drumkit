@@ -1,0 +1,19 @@
+.playable {
+  /* Rotate the item from the center of itself */
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.playable:hover {
+  /* Anytime you hover over a drum part, play the shake animation */
+  animation: SHAKE 0.2s linear 3;
+}
+
+@keyframes SHAKE {
+  /* From 0deg rotation (0%), to 3deg (50%), back to 0deg (100%) */
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
