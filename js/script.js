@@ -1,24 +1,24 @@
 let notesPlayed = [] // An empty array (will hold our music)
 let masterVolume = 0.5
+let sfxFolder = `audio`
 
-
-let btnA = document.querySelector(`#tom1`)
-let btnB = document.querySelector(`#tom2`)
+// Select all playable drum parts
+let drumParts = document.querySelectorAll(`.playable`)
 let btnReplay = document.querySelector(`#replay`)
 let rngVol = document.querySelector(`#volume`)
 
-let clickedA = function() {
-  let sound = new Audio(`audio/tom1.wav`)
-  sound.volume = masterVolume
-  sound.play()
-  notesPlayed.push(sound)  // Add A to the history
+// Runs once for each playable part of the drum kit
+let makesItPlayable = function(part) {
+  let theSfxFile = part.getAttribute(`data-sound`)
+  let playTheSound = function() {
+    let sound = new Audio(`${sfxFolder}/${theSfxFile}`)
+    sound.volume = masterVolume
+    sound.play()
+    notesPlayed.push(sound)
+  }
+  part.addEventListener(`click`, playTheSound)
 }
-let clickedB = function() {
-  let sound = new Audio(`audio/tom2.wav`)
-  sound.volume = masterVolume
-  sound.play()
-	notesPlayed.push(sound)  // Add B to the history
-}
+
 let replayNotes = function() {
   let index = 0  // counter
   
@@ -47,7 +47,7 @@ let updateVolume = function() {
 }
 
 
-btnA.addEventListener(`click`, clickedA)
-btnB.addEventListener(`click`, clickedB)
+// For each of the parts, call makeItPlayable, passing the item reference
+drumParts.forEach(makesItPlayable)
 btnReplay.addEventListener(`click`, replayNotes)
 rngVol.addEventListener(`change`, updateVolume)
