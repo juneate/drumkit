@@ -1,6 +1,6 @@
 .drums {
   max-width: 50em;
-  margin: 0 auto;
+  margin: 1em auto;
 }
 .playable {
   /* Rotate the item from the center of itself */
